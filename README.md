@@ -23,3 +23,6 @@ Based on the Apache-2.0 IBM Skills Network starter project. Implementation,
 tests and documentation were prepared with AI assistance and must be
 reviewed by the learner. Staff profiles and contact details are fictional
 demonstration data. Deployment evidence is collected from actual runs.
+
+## Skills Network runtime build
+If npm cannot run inside the Docker builder, first run `npm ci && npm run build` in `server/frontend` and `npm install --omit=dev` in `server/database` on the lab host. Then run `docker compose -f compose.yaml -f compose.lab.yaml up --build -d`. This uses the runtime Dockerfiles with the locally compiled frontend and installed Node dependencies. The lab proxy exposes port 8000.

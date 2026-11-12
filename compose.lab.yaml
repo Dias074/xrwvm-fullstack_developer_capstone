@@ -1,0 +1,14 @@
+# Build the frontend with npm ci && npm run build before using this override.
+# Intended for the Skills Network training environment only.
+services:
+  database:
+    build:
+      context: ./server/database
+      dockerfile: Dockerfile.runtime
+  web:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.runtime
+    environment:
+      ALLOWED_HOSTS: localhost,127.0.0.1,.labs.cognitiveclass.ai
+      CSRF_TRUSTED_ORIGINS: https://*.labs.cognitiveclass.ai
